@@ -68,8 +68,8 @@ go build -o m3u8 cmd/main.go
 ### 示例
 
 ```bash
-# 基本下载
-./m3u8 -u "https://example.com/video/index.m3u8"
+# 解析地址，如腾讯，爱奇艺播放地址
+./m3u8 -u "https://www.iqiyi.com/v_1xkc9zgg4to.html"
 
 # 指定输出目录和文件名
 ./m3u8 -u "https://example.com/video/index.m3u8" -p "./downloads" -name "my_video"
