@@ -1,6 +1,7 @@
 package tool
 
 import (
+	"crypto/md5"
 	"fmt"
 	"net/url"
 	"os"
@@ -39,4 +40,26 @@ func DrawProgressBar(prefix string, proportion float32, width int, suffix ...str
 	s := fmt.Sprintf("[%s] %s%*s %6.2f%% %s",
 		prefix, strings.Repeat("■", pos), width-pos, "", proportion*100, strings.Join(suffix, ""))
 	fmt.Print("\r" + s)
+}
+
+func FileExist(name string) bool {
+	_, err := os.Stat(name)
+	if err == nil {
+		return true
+	}
+	if os.IsNotExist(err) {
+		return false
+	}
+	return false
+}
+
+func FileRemove(name string) error {
+	if len(name) > 0 && FileExist(name) {
+		return os.Remove(name)
+	}
+	return nil
+}
+
+func MD5(v []byte) string {
+	return fmt.Sprintf("%x", md5.Sum(v))
 }
