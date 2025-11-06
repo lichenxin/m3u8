@@ -19,8 +19,8 @@ var inputURL, outputName, dataPath string
 // CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o bin/m3u8-http-server
 func init() {
     flag.StringVar(&inputURL, "u", "", "链接地址输入")
-    flag.StringVar(&outputName, "o", "", "输出名称，默认使用链接地址的MD5值作为名称")
     flag.StringVar(&dataPath, "p", "./data", "输入目录，默认当前目录中")
+    flag.StringVar(&outputName, "name", "", "输出名称，默认使用链接地址的MD5值作为名称")
     flag.Parse()
 
     if !strings.HasPrefix(inputURL, "http") {
