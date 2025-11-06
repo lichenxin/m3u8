@@ -62,6 +62,9 @@ func downloadTsFileToMP4(url string) {
     }()
 
     name := tool.MD5([]byte(url))
+    if outputName != "" {
+        name = outputName
+    }
     mp4File := dataPath + fmt.Sprintf("%s.mp4", name)
     if tool.FileExist(mp4File) {
         fmt.Println("[file]", mp4File, "exists")
