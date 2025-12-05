@@ -16,7 +16,7 @@ import (
 var inputURL, outputName, dataPath string
 
 // ffmpeg -i main.ts -acodec copy -vcodec copy -absf aac_adtstoasc output.mp4
-// CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o bin/m3u8-http-server
+// CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o bin/m3u8-downloader
 func init() {
     flag.StringVar(&inputURL, "u", "", "链接地址输入")
     flag.StringVar(&dataPath, "p", "./data", "输入目录，默认当前目录中")
